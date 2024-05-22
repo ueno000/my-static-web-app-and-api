@@ -11,6 +11,9 @@ on:
 
 jobs:
   build_and_deploy_job:
+    strategy:
+      matrix:
+        node-version: [12.22.12]  # ここに使用したい Node.js のバージョンを指定します
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
